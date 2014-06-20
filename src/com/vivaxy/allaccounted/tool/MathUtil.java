@@ -4,7 +4,7 @@ package com.vivaxy.allaccounted.tool;
  * Author: vivaxy
  * Date: 2014/6/19 18:14
  * Project: AllAccounted
- * Package: com.vivaxy.allaccounted.object
+ * Package: com.vivaxy.allaccounted.tool
  */
 public class MathUtil {
     public float getX(int width, int radius, double degree) {

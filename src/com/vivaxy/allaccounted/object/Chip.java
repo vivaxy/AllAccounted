@@ -7,16 +7,7 @@ package com.vivaxy.allaccounted.object;
  * Package: com.vivaxy.allaccounted.object
  */
 public class Chip {
-    private int id;
     private int money;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public int getMoney() {
         return money;

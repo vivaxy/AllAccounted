@@ -54,7 +54,7 @@ public class Player {
     }
 
     public void setMoney(int money) {
-        if (money < Integer.MAX_VALUE && money > Integer.MIN_VALUE) this.money = money;
+        this.money = money;
     }
 
     public long getColor() {

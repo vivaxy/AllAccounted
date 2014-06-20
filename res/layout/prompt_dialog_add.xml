@@ -44,19 +44,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+"
-                android:id="@+id/button_add1"
+                android:id="@+id/button_chip0"
                 android:layout_weight="0.33"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+"
-                android:id="@+id/button_add2"
+                android:id="@+id/button_chip1"
                 android:layout_weight="0.33"/>
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+"
-                android:id="@+id/button_add3"
+                android:id="@+id/button_chip2"
                 android:layout_weight="0.33"/>
     </LinearLayout>
     <LinearLayout

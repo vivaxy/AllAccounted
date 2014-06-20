@@ -13,10 +13,10 @@ import java.util.ArrayList;
  * Author: vivaxy
  * Date: 2014/6/19 17:52
  * Project: AllAccounted
- * Package: com.vivaxy.allaccounted.object
+ * Package: com.vivaxy.allaccounted.tool
  */
 
-public class PlayerListUtil {
+public class PlayerUtil {
 
     public static ArrayList<Player> pl = new ArrayList<Player>();
     MathUtil mu = new MathUtil();

@@ -6,20 +6,20 @@ import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.View;
 import com.vivaxy.allaccounted.tool.DialogUtil;
-import com.vivaxy.allaccounted.tool.PlayerListUtil;
+import com.vivaxy.allaccounted.tool.PlayerUtil;
 
 /**
  * Author: vivaxy
  * Date: 2014/6/19 17:52
  * Project: AllAccounted
- * Package: com.vivaxy.allaccounted.object
+ * Package: com.vivaxy.allaccounted.main
  */
 public class HomeView extends View {
 
     int action = MotionEvent.ACTION_UP;
     float x;
     float y;
-    PlayerListUtil plu = new PlayerListUtil();
+    PlayerUtil pu = new PlayerUtil();
     DialogUtil du = new DialogUtil();
     private Paint paint = new Paint();
 
@@ -30,16 +30,17 @@ public class HomeView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         if (action == MotionEvent.ACTION_DOWN) {
-            plu.setFrom(x, y);
+            pu.setFrom(x, y);
         } else if (action == MotionEvent.ACTION_MOVE) {
-            plu.drawPlayerList(canvas, paint, x, y);
+            pu.drawPlayerList(canvas, paint, x, y);
         } else if (action == MotionEvent.ACTION_UP) {
-            plu.setTo(x, y);
-            if (plu.toWhich() != -1) {
+            pu.setTo(x, y);
+            if (pu.toWhich() != -1) {
                 du.showDialog("transfer");
             }
-            plu.clearFrom();
-            plu.drawPlayerList(canvas, paint, 0, 0);
+            pu.clearFrom();
+            pu.drawPlayerList(canvas, paint, 0, 0);
+            invalidate();
         }
     }
 

@@ -3,10 +3,8 @@ package com.vivaxy.allaccounted.main;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 import com.vivaxy.allaccounted.tool.DialogUtil;
 import com.vivaxy.allaccounted.tool.PlayerListUtil;
 
@@ -28,11 +26,11 @@ public class HomeView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (action == MotionEvent.ACTION_DOWN){
+        if (action == MotionEvent.ACTION_DOWN) {
             plu.setFrom(x, y);
-        }else if (action == MotionEvent.ACTION_MOVE){
+        } else if (action == MotionEvent.ACTION_MOVE) {
             plu.drawPlayerList(canvas, paint, x, y);
-        }else if (action == MotionEvent.ACTION_UP){
+        } else if (action == MotionEvent.ACTION_UP) {
             plu.setTo(x, y);
             if (plu.toWhich() != -1) {
                 du.showDialog("transfer");

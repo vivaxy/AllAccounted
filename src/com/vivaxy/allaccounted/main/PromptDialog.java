@@ -15,7 +15,7 @@ public class PromptDialog extends DialogFragment implements OnClickListener {
 
     String title;
 
-    public static PromptDialog newInstance(String title, int from, int to){
+    public static PromptDialog newInstance(String title, int from, int to) {
         PromptDialog pd = new PromptDialog();
         Bundle bundle = new Bundle();
         bundle.putString("prompt_title", title);
@@ -30,7 +30,7 @@ public class PromptDialog extends DialogFragment implements OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Bundle bundle = getArguments();
         View v = inflater.inflate(R.layout.prompt_dialog, container);
-        TextView tv = (TextView)v.findViewById(R.id.prompt_title);
+        TextView tv = (TextView) v.findViewById(R.id.prompt_title);
         title = bundle.getString("prompt_title");
         tv.setText(title);
         Button ok_btn = (Button) v.findViewById(R.id.ok_btn);

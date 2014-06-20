@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import com.vivaxy.allaccounted.main.HomeActivity;
 import com.vivaxy.allaccounted.main.HomeView;
 import com.vivaxy.allaccounted.object.Player;
-import com.vivaxy.allaccounted.object.PlayerList;
 
 import java.util.ArrayList;
 
@@ -19,7 +18,7 @@ import java.util.ArrayList;
 
 public class PlayerListUtil {
 
-    public static ArrayList<Player> pl = new PlayerList().getPl();
+    public static ArrayList<Player> pl = new ArrayList<Player>();
     MathUtil mu = new MathUtil();
 
     public void addPlayer(Player p) {

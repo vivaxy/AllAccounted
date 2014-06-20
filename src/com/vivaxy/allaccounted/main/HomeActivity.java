@@ -8,11 +8,18 @@ import com.vivaxy.allaccounted.R;
 import com.vivaxy.allaccounted.tool.DialogUtil;
 import com.vivaxy.allaccounted.tool.PlayerListUtil;
 
+/**
+ * Author: vivaxy
+ * Date: 2014/6/19 17:52
+ * Project: AllAccounted
+ * Package: com.vivaxy.allaccounted.object
+ */
+
 public class HomeActivity extends Activity {
 
+    public static HomeActivity ha;
     PlayerListUtil plu = new PlayerListUtil();
     DialogUtil du = new DialogUtil();
-    public static HomeActivity ha;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -28,7 +35,7 @@ public class HomeActivity extends Activity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
+    public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
             case R.id.setNumber:
@@ -39,5 +46,4 @@ public class HomeActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

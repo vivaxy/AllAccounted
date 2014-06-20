@@ -3,11 +3,14 @@ package com.vivaxy.allaccounted.object;
 import java.util.ArrayList;
 
 /**
- * Created by vivaxy on 2014/6/19 17:55.
+ * Author: vivaxy
+ * Date: 2014/6/19 17:55
+ * Project: AllAccounted
+ * Package: com.vivaxy.allaccounted.object
  */
 public class PlayerList {
 
-    public static ArrayList<Player> pl = new ArrayList<Player>();
+    private ArrayList<Player> pl = new ArrayList<Player>();
 
     public ArrayList<Player> getPl() {
         return pl;

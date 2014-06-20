@@ -1,18 +1,21 @@
 package com.vivaxy.allaccounted.object;
 
 /**
- * Created by vivaxy on 2014/6/19 17:52.
+ * Author: vivaxy
+ * Date: 2014/6/19 17:52
+ * Project: AllAccounted
+ * Package: com.vivaxy.allaccounted.object
  */
 public class Player {
-    String name;
-    int money;
-    long color;
-    double degree;
-    float x;
-    float y;
-    int radius;
-    boolean from;
-    boolean to;
+    private String name;
+    private int money;
+    private long color;
+    private double degree;
+    private float x;
+    private float y;
+    private int radius;
+    private boolean from;
+    private boolean to;
 
     public boolean isFrom() {
         return from;

@@ -11,15 +11,11 @@ import android.widget.TextView;
 import com.vivaxy.allaccounted.R;
 import com.vivaxy.allaccounted.tool.DialogUtil;
 
-/**
- * Author: vivaxy
- * Date: 2014/6/19 17:52
- * Project: AllAccounted
- * Package: com.vivaxy.allaccounted.object
- */
 public class PromptDialog extends DialogFragment implements OnClickListener {
 
-    public static PromptDialog newInstance(String title, int from, int to) {
+    String title;
+
+    public static PromptDialog newInstance(String title, int from, int to){
         PromptDialog pd = new PromptDialog();
         Bundle bundle = new Bundle();
         bundle.putString("prompt_title", title);
@@ -33,10 +29,9 @@ public class PromptDialog extends DialogFragment implements OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Bundle bundle = getArguments();
-        String title = bundle.getString("prompt_title");
         View v = inflater.inflate(R.layout.prompt_dialog, container);
-        if (title.equals("transfer")) v = inflater.inflate(R.layout.prompt_dialog_add, container);
-        TextView tv = (TextView) v.findViewById(R.id.prompt_title);
+        TextView tv = (TextView)v.findViewById(R.id.prompt_title);
+        title = bundle.getString("prompt_title");
         tv.setText(title);
         Button ok_btn = (Button) v.findViewById(R.id.ok_btn);
         ok_btn.setOnClickListener(this);
@@ -47,8 +42,6 @@ public class PromptDialog extends DialogFragment implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Bundle bundle = getArguments();
-        String title = bundle.getString("prompt_title");
         DialogUtil du = new DialogUtil();
         switch (v.getId()) {
             case R.id.cancel_btn:

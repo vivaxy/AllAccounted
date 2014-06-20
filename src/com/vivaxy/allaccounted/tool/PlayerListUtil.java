@@ -11,7 +11,8 @@ import com.vivaxy.allaccounted.object.PlayerList;
 import java.util.ArrayList;
 
 /**
- * Created by vivaxy on 2014/6/19 17:59.
+ * Author: vivaxy
+ * Date: 2014/6/19 11:00
  */
 public class PlayerListUtil {
 
@@ -42,7 +43,7 @@ public class PlayerListUtil {
             Player p = new Player();
             p.setColor((int) (Math.random() * 16777215) + 4278190080L);
             p.setName("vivaxy");
-            p.setMoney((int) Math.random() * 10);
+            p.setMoney(0);
             p.setRadius(64);
             p.setFrom(false);
             p.setTo(false);
@@ -52,32 +53,29 @@ public class PlayerListUtil {
     }
 
     public void drawPlayerList(Canvas canvas, Paint paint, float x, float y){
-        for (int i=0;i<pl.size();i++){
-            Player p = pl.get(i);
+        paint.setTextSize(64);
+        for (Player p : pl) {
             p.setX(mu.getX(canvas.getWidth(), p.getRadius(), p.getDegree()));
             p.setY(mu.getY(canvas.getHeight(), p.getRadius(), p.getDegree()));
-            paint.setColor((int) p.getColor());
-            if (p.isFrom()){
+            if (p.isFrom()) {
+                paint.setColor((int) p.getColor());
                 canvas.drawCircle(x, y, p.getRadius(), paint);
+                paint.setColor(Color.WHITE);
                 canvas.drawText(String.valueOf(p.getMoney()), x, y, paint);
-            }
-            else{
+            } else {
+                paint.setColor((int) p.getColor());
                 canvas.drawCircle(p.getX(), p.getY(), p.getRadius(), paint);
+                paint.setColor(Color.WHITE);
                 canvas.drawText(String.valueOf(p.getMoney()), p.getX(), p.getY(), paint);
             }
-            paint.setColor(Color.WHITE);
-            paint.setTextSize(64);
-
         }
     }
 
     public void setFrom(float x, float y) {
-        for (int i=0;i<pl.size();i++){
-            Player p = pl.get(i);
-            if (mu.isIn(p.getX(), p.getY(), x, y, p.getRadius())){
+        for (Player p : pl) {
+            if (mu.isIn(p.getX(), p.getY(), x, y, p.getRadius())) {
                 p.setFrom(true);
-            }
-            else{
+            } else {
                 p.setFrom(false);
             }
         }
@@ -112,14 +110,14 @@ public class PlayerListUtil {
     }
 
     public void clearFrom(){
-        for (int i=0;i<pl.size();i++){
-            pl.get(i).setFrom(false);
+        for (Player aPl : pl) {
+            aPl.setFrom(false);
         }
     }
 
     public void clearTo() {
-        for (int i=0;i<pl.size();i++){
-            pl.get(i).setTo(false);
+        for (Player aPl : pl) {
+            aPl.setTo(false);
         }
     }
 }

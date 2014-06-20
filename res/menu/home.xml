@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/setNumber"
+            android:orderInCategory="100"
+            android:title="@string/setNumber" />
+    <item
+            android:id="@+id/setchip"
+            android:orderInCategory="100"
+            android:title="@string/setchip" />
+    <item
+            android:id="@+id/exit"
+            android:orderInCategory="100"
+            android:title="@string/exit" />
+</menu>

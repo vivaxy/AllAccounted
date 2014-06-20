@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AllAccounted</string>
+    <string name="setNumber">setNumber</string>
+    <string name="exit">exit</string>
+    <string name="setchip">setchip</string>
+</resources>

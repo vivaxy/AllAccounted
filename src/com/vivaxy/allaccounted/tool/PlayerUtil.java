@@ -1,8 +1,8 @@
 package com.vivaxy.allaccounted.tool;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import com.vivaxy.allaccounted.main.HomeActivity;
 import com.vivaxy.allaccounted.main.HomeView;
 import com.vivaxy.allaccounted.object.Player;
@@ -43,32 +43,57 @@ public class PlayerUtil {
         clearPlayerList();
         for (int i = 0; i < count; i++) {
             Player p = new Player();
-            p.setColor((int) (Math.random() * 16777215) + 4278190080L);
+//            p.setColor((int) (Math.random() * 16777215) + 4278190080L);
+            p.setFillColor(0xFF858585);
+            p.setStrokeColor(0xFF383838);
             p.setName("vivaxy");
             p.setMoney(0);
             p.setRadius(64);
             p.setFrom(false);
             p.setTo(false);
+            p.setFontColor(0xFFEEEEEE);
+            p.setFontSize(48);
             addPlayer(p);
         }
         HomeActivity.ha.setContentView(new HomeView(HomeActivity.ha));
     }
 
     public void drawPlayerList(Canvas canvas, Paint paint, float x, float y) {
-        paint.setTextSize(64);
         for (Player p : pl) {
             p.setX(mu.getX(canvas.getWidth(), p.getRadius(), p.getDegree()));
             p.setY(mu.getY(canvas.getHeight(), p.getRadius(), p.getDegree()));
             if (p.isFrom()) {
-                paint.setColor((int) p.getColor());
+                paint.setStyle(Paint.Style.FILL);
+                paint.setColor(p.getFillColor());
                 canvas.drawCircle(x, y, p.getRadius(), paint);
-                paint.setColor(Color.WHITE);
-                canvas.drawText(String.valueOf(p.getMoney()), x, y, paint);
+
+                paint.setStyle(Paint.Style.STROKE);
+                paint.setColor(p.getStrokeColor());
+                canvas.drawCircle(x, y, p.getRadius(), paint);
+
+                String text = String.valueOf(p.getMoney());
+                paint.setTextAlign(Paint.Align.CENTER);
+                Rect bounds = new Rect();
+                paint.getTextBounds(text, 0, text.length(), bounds);
+                paint.setColor(p.getFontColor());
+                paint.setTextSize(p.getFontSize());
+                canvas.drawText(text, x, y + (bounds.bottom - bounds.top) / 2, paint);
             } else {
-                paint.setColor((int) p.getColor());
+                paint.setStyle(Paint.Style.FILL);
+                paint.setColor(p.getFillColor());
                 canvas.drawCircle(p.getX(), p.getY(), p.getRadius(), paint);
-                paint.setColor(Color.WHITE);
-                canvas.drawText(String.valueOf(p.getMoney()), p.getX(), p.getY(), paint);
+
+                paint.setStyle(Paint.Style.STROKE);
+                paint.setColor(p.getStrokeColor());
+                canvas.drawCircle(p.getX(), p.getY(), p.getRadius(), paint);
+
+                String text = String.valueOf(p.getMoney());
+                paint.setTextAlign(Paint.Align.CENTER);
+                Rect bounds = new Rect();
+                paint.getTextBounds(text, 0, text.length(), bounds);
+                paint.setColor(p.getFontColor());
+                paint.setTextSize(p.getFontSize());
+                canvas.drawText(text, p.getX(), p.getY() + (bounds.bottom - bounds.top) / 2, paint);
             }
         }
     }
@@ -120,5 +145,9 @@ public class PlayerUtil {
         for (Player aPl : pl) {
             aPl.setTo(false);
         }
+    }
+
+    public int getNumber() {
+        return pl.size();
     }
 }

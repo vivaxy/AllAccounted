@@ -42,10 +42,16 @@ public class HomeActivity extends Activity {
         int id = item.getItemId();
         switch (id) {
             case R.id.setNumber:
-                du.showDialog("setNumber");
+                du.showDialog(0);
+                break;
+            case R.id.setChip:
+                du.showDialog(1);
                 break;
             case R.id.exit:
                 finish();
+                break;
+            default:
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

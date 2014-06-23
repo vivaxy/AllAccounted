@@ -36,7 +36,7 @@ public class HomeView extends View {
         } else if (action == MotionEvent.ACTION_UP) {
             pu.setTo(x, y);
             if (pu.toWhich() != -1) {
-                du.showDialog("transfer");
+                du.showDialog(10);
             }
             pu.clearFrom();
             pu.drawPlayerList(canvas, paint, 0, 0);

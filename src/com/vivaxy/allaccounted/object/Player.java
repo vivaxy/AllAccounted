@@ -9,13 +9,32 @@ package com.vivaxy.allaccounted.object;
 public class Player {
     private String name;
     private int money;
-    private long color;
+    private int fillColor;
+    private int strokeColor;
+    private int fontColor;
+    private int fontSize;
     private double degree;
     private float x;
     private float y;
     private int radius;
     private boolean from;
     private boolean to;
+
+    public int getFontColor() {
+        return fontColor;
+    }
+
+    public void setFontColor(int fontColor) {
+        this.fontColor = fontColor;
+    }
+
+    public int getFontSize() {
+        return fontSize;
+    }
+
+    public void setFontSize(int fontSize) {
+        this.fontSize = fontSize;
+    }
 
     public boolean isFrom() {
         return from;
@@ -57,12 +76,20 @@ public class Player {
         this.money = money;
     }
 
-    public long getColor() {
-        return color;
+    public int getFillColor() {
+        return fillColor;
     }
 
-    public void setColor(long color) {
-        this.color = color;
+    public void setFillColor(int color) {
+        this.fillColor = color;
+    }
+
+    public int getStrokeColor() {
+        return strokeColor;
+    }
+
+    public void setStrokeColor(int color) {
+        this.strokeColor = color;
     }
 
     public int getRadius() {

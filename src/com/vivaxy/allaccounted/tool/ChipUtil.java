@@ -48,4 +48,6 @@ public class ChipUtil {
     public void setChip2(int money) {
         cl.get(2).setMoney(money);
     }
+
+
 }

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AllAccounted</string>
-    <string name="setNumber">setNumber</string>
-    <string name="setChip">setChip</string>
+    <string name="setNumber">set player number</string>
+    <string name="setChip">set chip</string>
     <string name="exit">exit</string>
+    <string name="larger_than_zero">number should be larger than zero</string>
+    <string name="two_to_nine">number should between 2 and 9</string>
+    <string name="transfer">transfer</string>
+    <string name="NumberFormatException">number format exception</string>
 </resources>

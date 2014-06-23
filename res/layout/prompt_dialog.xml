@@ -31,8 +31,6 @@
             android:padding="12sp"
             android:ems="16"
             android:inputType="number">
-
-        <requestFocus/>
     </EditText>
 
     <LinearLayout

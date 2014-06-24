@@ -3,8 +3,6 @@ package com.vivaxy.allaccounted.tool;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import com.vivaxy.allaccounted.android.HomeActivity;
-import com.vivaxy.allaccounted.android.HomeView;
 import com.vivaxy.allaccounted.object.Player;
 
 import java.util.ArrayList;
@@ -52,10 +50,9 @@ public class PlayerUtil {
             p.setFrom(false);
             p.setTo(false);
             p.setFontColor(0xFFEEEEEE);
-            p.setFontSize(48);
+            p.setFontSize(36);
             addPlayer(p);
         }
-        HomeActivity.ha.setContentView(new HomeView(HomeActivity.ha));
     }
 
     public void drawPlayerList(Canvas canvas, Paint paint, float x, float y) {

@@ -24,10 +24,13 @@ public class HomeActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            this.ha = this;
+            pu.initPl(4);
+            cu.initCl();
+        }
+        setContentView(new HomeView(this));
         super.onCreate(savedInstanceState);
-        this.ha = this;
-        pu.initPl(4);
-        cu.initCl();
     }
 
     @Override
@@ -44,6 +47,7 @@ public class HomeActivity extends Activity {
                 SetNumberDialog snd = new SetNumberDialog();
                 snd.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
                 snd.show(HomeActivity.ha.getFragmentManager(), "");
+                setContentView(new HomeView(this));
                 break;
             case R.id.setChip:
                 SetChipDialog scd = new SetChipDialog();

@@ -10,6 +10,10 @@
             android:orderInCategory="100"
             android:title="@string/setChip"/>
     <item
+            android:id="@+id/moreAds"
+            android:orderInCategory="100"
+            android:title="@string/moreAds"/>
+    <item
             android:id="@+id/about"
             android:orderInCategory="100"
             android:title="@string/about"/>

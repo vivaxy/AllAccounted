@@ -34,7 +34,7 @@ public class AboutDialog extends DialogFragment implements OnClickListener {
         }
         aboutContent.setText(getResources().getString(R.string.app_name) + "\n" +
                 getResources().getString(R.string.author) + ": vivaxy" + "\n" +
-                version + "\n");
+                version);
         Button ok_btn = (Button) view.findViewById(R.id.ok_btn);
         ok_btn.setOnClickListener(this);
         return view;

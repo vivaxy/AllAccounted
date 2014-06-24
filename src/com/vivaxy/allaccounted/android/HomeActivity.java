@@ -2,9 +2,12 @@ package com.vivaxy.allaccounted.android;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import cn.waps.AppConnect;
 import com.vivaxy.allaccounted.R;
 import com.vivaxy.allaccounted.tool.ChipUtil;
 import com.vivaxy.allaccounted.tool.PlayerUtil;
@@ -24,13 +27,18 @@ public class HomeActivity extends Activity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if (savedInstanceState == null) {
+            AppConnect.getInstance(this);
+            AppConnect.getInstance(this).initPopAd(this);
+            AppConnect.getInstance(this).initFunAd(this);
+            AppConnect.getInstance(this).initAdInfo();
+            AppConnect.getInstance(this).getConfig("showAd", "defaultValue");
             this.ha = this;
             pu.initPl(4);
             cu.initCl();
+            setContentView(new HomeView(this));
         }
-        setContentView(new HomeView(this));
-        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -54,17 +62,44 @@ public class HomeActivity extends Activity {
                 scd.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
                 scd.show(HomeActivity.ha.getFragmentManager(), "");
                 break;
+            case R.id.moreAds:
+                Intent appWallIntent = new Intent(this, AppWall.class);
+                this.startActivity(appWallIntent);
+                break;
             case R.id.about:
-                AboutDialog ad = new AboutDialog();
-                ad.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
-                ad.show(HomeActivity.ha.getFragmentManager(), "");
+//                AboutDialog ad = new AboutDialog();
+//                ad.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+//                ad.show(HomeActivity.ha.getFragmentManager(), "");
+                PackageManager pm = HomeActivity.ha.getPackageManager();
+                String version = getResources().getString(R.string.version) + ": ";
+                try {
+                    version = version + pm.getPackageInfo(HomeActivity.ha.getPackageName(), 0).versionName;
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
+                }
+                String about_title = getResources().getString(R.string.about);
+                String about_content = getResources().getString(R.string.app_name) + "\n" +
+                        getResources().getString(R.string.author) + ": vivaxy" + "\n" +
+                        version;
+                AboutAdDialog.getInstance().show(this, about_title, about_content);
                 break;
             case R.id.exit:
-                finish();
+                QuitAdDialog.getInstance().show(this);
                 break;
             default:
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        QuitAdDialog.getInstance().show(this);
+    }
+
+    @Override
+    public void onDestroy() {
+        AppConnect.getInstance(this).close();
+        super.onDestroy();
     }
 }

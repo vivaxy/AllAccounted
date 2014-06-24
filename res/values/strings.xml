@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AllAccounted</string>
-    <string name="setNumber">set player number</string>
-    <string name="setChip">set chip</string>
-    <string name="exit">exit</string>
-    <string name="larger_than_zero">number should be larger than zero</string>
-    <string name="two_to_nine">number should between 2 and 9</string>
-    <string name="transfer">transfer</string>
-    <string name="NumberFormatException">number format exception</string>
+    <string name="setNumber">Set player number</string>
+    <string name="setChip">Set chip</string>
+    <string name="exit">Exit</string>
+    <string name="larger_than_zero">Number should be larger than zero.</string>
+    <string name="two_to_nine">Number should between 2 and 9.</string>
+    <string name="transfer">Transfer</string>
+    <string name="NumberFormatException">Number format exception</string>
+    <string name="about">About</string>
+    <string name="author">Author</string>
+    <string name="version">Version</string>
 </resources>

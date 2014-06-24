@@ -1,18 +1,17 @@
-package com.vivaxy.allaccounted.main;
+package com.vivaxy.allaccounted.android;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.view.MotionEvent;
 import android.view.View;
-import com.vivaxy.allaccounted.tool.DialogUtil;
 import com.vivaxy.allaccounted.tool.PlayerUtil;
 
 /**
  * Author: vivaxy
  * Date: 2014/6/19 17:52
  * Project: AllAccounted
- * Package: com.vivaxy.allaccounted.main
+ * Package: com.vivaxy.allaccounted.android
  */
 public class HomeView extends View {
 
@@ -20,7 +19,6 @@ public class HomeView extends View {
     float x;
     float y;
     PlayerUtil pu = new PlayerUtil();
-    DialogUtil du = new DialogUtil();
     private Paint paint = new Paint();
 
     public HomeView(Context context) {
@@ -36,9 +34,10 @@ public class HomeView extends View {
         } else if (action == MotionEvent.ACTION_UP) {
             pu.setTo(x, y);
             if (pu.toWhich() != -1) {
-                du.showDialog(10);
+                new TransferDialog().newInstance(pu.fromWhich(), pu.toWhich());
             }
             pu.clearFrom();
+            pu.clearTo();
             pu.drawPlayerList(canvas, paint, 0, 0);
             invalidate();
         }

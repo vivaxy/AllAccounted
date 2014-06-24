@@ -1,26 +1,25 @@
-package com.vivaxy.allaccounted.main;
+package com.vivaxy.allaccounted.android;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import com.vivaxy.allaccounted.R;
 import com.vivaxy.allaccounted.tool.ChipUtil;
-import com.vivaxy.allaccounted.tool.DialogUtil;
 import com.vivaxy.allaccounted.tool.PlayerUtil;
 
 /**
  * Author: vivaxy
  * Date: 2014/6/19 17:52
  * Project: AllAccounted
- * Package: com.vivaxy.allaccounted.main
+ * Package: com.vivaxy.allaccounted.android
  */
 
 public class HomeActivity extends Activity {
 
     public static HomeActivity ha;
     PlayerUtil pu = new PlayerUtil();
-    DialogUtil du = new DialogUtil();
     ChipUtil cu = new ChipUtil();
 
     @Override
@@ -42,10 +41,19 @@ public class HomeActivity extends Activity {
         int id = item.getItemId();
         switch (id) {
             case R.id.setNumber:
-                du.showDialog(0);
+                SetNumberDialog snd = new SetNumberDialog();
+                snd.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+                snd.show(HomeActivity.ha.getFragmentManager(), "");
                 break;
             case R.id.setChip:
-                du.showDialog(1);
+                SetChipDialog scd = new SetChipDialog();
+                scd.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+                scd.show(HomeActivity.ha.getFragmentManager(), "");
+                break;
+            case R.id.about:
+                AboutDialog ad = new AboutDialog();
+                ad.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+                ad.show(HomeActivity.ha.getFragmentManager(), "");
                 break;
             case R.id.exit:
                 finish();

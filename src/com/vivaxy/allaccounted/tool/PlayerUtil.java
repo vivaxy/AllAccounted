@@ -3,8 +3,8 @@ package com.vivaxy.allaccounted.tool;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import com.vivaxy.allaccounted.main.HomeActivity;
-import com.vivaxy.allaccounted.main.HomeView;
+import com.vivaxy.allaccounted.android.HomeActivity;
+import com.vivaxy.allaccounted.android.HomeView;
 import com.vivaxy.allaccounted.object.Player;
 
 import java.util.ArrayList;

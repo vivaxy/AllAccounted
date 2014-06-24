@@ -17,11 +17,10 @@
             android:padding="12sp"/>
 
     <TextView
-            android:id="@+id/bottom_line"
             android:layout_width="match_parent"
             android:layout_height="3dip"
             android:text=""
-            android:background="@drawable/bottom_line"/>
+            android:background="@drawable/line"/>
 
     <EditText
             android:id="@+id/number_input"
@@ -57,6 +56,11 @@
                 android:id="@+id/button_chip2"
                 android:layout_weight="1"/>
     </LinearLayout>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="3dip"
+            android:text=""
+            android:background="@drawable/line"/>
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -65,14 +69,14 @@
                 android:id="@+id/cancel_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 android:text="@android:string/cancel"/>
 
         <Button
                 android:id="@+id/ok_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 android:text="@android:string/ok"/>
 
     </LinearLayout>

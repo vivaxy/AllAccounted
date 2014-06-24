@@ -1,10 +1,8 @@
 package com.vivaxy.allaccounted.tool;
 
-import android.os.Bundle;
 import android.widget.Toast;
 import com.vivaxy.allaccounted.R;
-import com.vivaxy.allaccounted.main.HomeActivity;
-import com.vivaxy.allaccounted.main.PromptDialog;
+import com.vivaxy.allaccounted.android.HomeActivity;
 import com.vivaxy.allaccounted.object.Player;
 
 /**
@@ -14,30 +12,6 @@ import com.vivaxy.allaccounted.object.Player;
  * Package: com.vivaxy.allaccounted.tool
  */
 public class DialogUtil {
-
-    PlayerUtil pu = new PlayerUtil();
-
-    public void showDialog(int tag) {
-        PromptDialog pd;
-        switch (tag) {
-            case 0:
-                pd = PromptDialog.newInstance(0, 0, 0);
-                pd.show(HomeActivity.ha.getFragmentManager(), "");
-                break;
-            case 1:
-                pd = PromptDialog.newInstance(1, pu.fromWhich(), pu.toWhich());
-                pd.show(HomeActivity.ha.getFragmentManager(), "");
-                break;
-            case 10:
-                pd = PromptDialog.newInstance(10, pu.fromWhich(), pu.toWhich());
-                pd.show(HomeActivity.ha.getFragmentManager(), "");
-                pu.clearFrom();
-                pu.clearTo();
-                break;
-            default:
-                break;
-        }
-    }
 
     public void setNumber(String input) {
         int n = 0;
@@ -54,9 +28,7 @@ public class DialogUtil {
         }
     }
 
-    public void transfer(Bundle bundle, String input) {
-        int from = bundle.getInt("from");
-        int to = bundle.getInt("to");
+    public void transfer(int from, int to, String input) {
         if (input.equals("")) {
             Toast.makeText(HomeActivity.ha, R.string.larger_than_zero, Toast.LENGTH_LONG).show();
         } else {

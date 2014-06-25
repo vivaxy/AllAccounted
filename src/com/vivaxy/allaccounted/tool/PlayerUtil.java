@@ -9,8 +9,8 @@ import com.vivaxy.allaccounted.object.Player;
 import java.util.ArrayList;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/19 17:52
+ * Author : vivaxy
+ * Date   : 2014/6/19 17:52
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.tool
  */

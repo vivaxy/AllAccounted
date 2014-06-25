@@ -13,8 +13,8 @@ import com.vivaxy.allaccounted.R;
 import com.vivaxy.allaccounted.tool.DialogUtil;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/24 10:45
+ * Author : vivaxy
+ * Date   : 2014/6/24 10:45
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.android
  */

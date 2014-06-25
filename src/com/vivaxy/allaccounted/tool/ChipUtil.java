@@ -5,8 +5,8 @@ import com.vivaxy.allaccounted.object.Chip;
 import java.util.ArrayList;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/20 14:04
+ * Author : vivaxy
+ * Date   : 2014/6/20 14:04
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.tool
  */

@@ -1,4 +1,10 @@
 package com.vivaxy.allaccounted.android;
+/**
+ * Author : vivaxy
+ * Date   : 2014/6/24 19:56
+ * Project: AllAccounted
+ * Package: com.vivaxy.allaccounted.android
+ */
 
 import android.app.Activity;
 import android.app.AlertDialog;

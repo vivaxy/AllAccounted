@@ -12,10 +12,10 @@ import android.widget.TextView;
 import com.vivaxy.allaccounted.R;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/24 9:56
+ * Author : vivaxy
+ * Date   : 2014/6/24 9:56
  * Project: AllAccounted
- * Package: com.vivaxy.allaccounted.main
+ * Package: com.vivaxy.allaccounted.android
  */
 
 @Deprecated

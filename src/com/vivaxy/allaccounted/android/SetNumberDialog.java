@@ -16,8 +16,8 @@ import com.vivaxy.allaccounted.tool.DialogUtil;
 import com.vivaxy.allaccounted.tool.PlayerUtil;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/24 10:45
+ * Author : vivaxy
+ * Date   : 2014/6/24 10:45
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.android
  */

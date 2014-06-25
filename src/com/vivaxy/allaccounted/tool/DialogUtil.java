@@ -6,8 +6,8 @@ import com.vivaxy.allaccounted.android.HomeActivity;
 import com.vivaxy.allaccounted.object.Player;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/19 18:54
+ * Author : vivaxy
+ * Date   : 2014/6/19 18:54
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.tool
  */

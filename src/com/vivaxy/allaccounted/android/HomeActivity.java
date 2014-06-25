@@ -13,8 +13,8 @@ import com.vivaxy.allaccounted.tool.ChipUtil;
 import com.vivaxy.allaccounted.tool.PlayerUtil;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/19 17:52
+ * Author : vivaxy
+ * Date   : 2014/6/19 17:52
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.android
  */

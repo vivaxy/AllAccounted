@@ -1,8 +1,8 @@
 package com.vivaxy.allaccounted.object;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/20 19:21
+ * Author : vivaxy
+ * Date   : 2014/6/20 19:21
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.object
  */

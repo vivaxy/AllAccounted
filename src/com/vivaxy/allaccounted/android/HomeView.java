@@ -8,8 +8,8 @@ import android.view.View;
 import com.vivaxy.allaccounted.tool.PlayerUtil;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/19 17:52
+ * Author : vivaxy
+ * Date   : 2014/6/19 17:52
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.android
  */
@@ -30,7 +30,6 @@ public class HomeView extends View {
         if (action == MotionEvent.ACTION_DOWN) {
             pu.setFrom(x, y);
         } else if (action == MotionEvent.ACTION_MOVE) {
-            pu.drawPlayerList(canvas, paint, x, y);
         } else if (action == MotionEvent.ACTION_UP) {
             pu.setTo(x, y);
             if (pu.toWhich() != -1) {
@@ -38,9 +37,8 @@ public class HomeView extends View {
             }
             pu.clearFrom();
             pu.clearTo();
-            pu.drawPlayerList(canvas, paint, 0, 0);
-            invalidate();
         }
+        pu.drawPlayerList(canvas, paint, x, y);
     }
 
     @Override

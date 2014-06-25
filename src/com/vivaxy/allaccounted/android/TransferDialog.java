@@ -16,8 +16,8 @@ import com.vivaxy.allaccounted.tool.ChipUtil;
 import com.vivaxy.allaccounted.tool.DialogUtil;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/24 10:46
+ * Author : vivaxy
+ * Date   : 2014/6/24 10:46
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.android
  */

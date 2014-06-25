@@ -1,8 +1,8 @@
 package com.vivaxy.allaccounted.tool;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/19 18:14
+ * Author : vivaxy
+ * Date   : 2014/6/19 18:14
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.tool
  */

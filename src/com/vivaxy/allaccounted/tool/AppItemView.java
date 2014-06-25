@@ -1,4 +1,10 @@
 package com.vivaxy.allaccounted.tool;
+/**
+ * Author : vivaxy
+ * Date   : 2014/6/24 19:56
+ * Project: AllAccounted
+ * Package: com.vivaxy.allaccounted.tool
+ */
 
 import android.app.Activity;
 import android.content.Context;

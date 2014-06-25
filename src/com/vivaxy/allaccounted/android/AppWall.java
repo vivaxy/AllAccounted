@@ -20,8 +20,8 @@ import com.vivaxy.allaccounted.tool.AppItemView;
 import java.util.List;
 
 /**
- * Author: vivaxy
- * Date: 2014/6/24 19:19
+ * Author : vivaxy
+ * Date   : 2014/6/24 19:19
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.android
  */

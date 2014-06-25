@@ -17,6 +17,8 @@ import com.vivaxy.allaccounted.R;
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.main
  */
+
+@Deprecated
 public class AboutDialog extends DialogFragment implements OnClickListener {
 
     @Override

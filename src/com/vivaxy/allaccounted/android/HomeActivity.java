@@ -62,9 +62,9 @@ public class HomeActivity extends Activity {
                 scd.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
                 scd.show(HomeActivity.ha.getFragmentManager(), "");
                 break;
-            case R.id.moreAds:
-                Intent appWallIntent = new Intent(this, AppWall.class);
-                this.startActivity(appWallIntent);
+            case R.id.feedback:
+                Intent feedBackIntent = new Intent(this, Feedback.class);
+                this.startActivity(feedBackIntent);
                 break;
             case R.id.about:
 //                AboutDialog ad = new AboutDialog();
@@ -82,6 +82,10 @@ public class HomeActivity extends Activity {
                         getResources().getString(R.string.author) + ": vivaxy" + "\n" +
                         version;
                 AboutAdDialog.getInstance().show(this, about_title, about_content);
+                break;
+            case R.id.moreAds:
+                Intent appWallIntent = new Intent(this, AppWall.class);
+                this.startActivity(appWallIntent);
                 break;
             case R.id.exit:
                 QuitAdDialog.getInstance().show(this);

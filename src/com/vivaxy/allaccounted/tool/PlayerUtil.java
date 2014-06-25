@@ -1,6 +1,7 @@
 package com.vivaxy.allaccounted.tool;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import com.vivaxy.allaccounted.object.Player;
@@ -56,6 +57,12 @@ public class PlayerUtil {
     }
 
     public void drawPlayerList(Canvas canvas, Paint paint, float x, float y) {
+
+        paint.setStyle(Paint.Style.FILL);
+        paint.setColor(Color.BLACK);
+        Rect rect = new Rect(0, 0, canvas.getWidth(), canvas.getHeight());
+        canvas.drawRect(rect, paint);
+
         for (Player p : pl) {
             p.setX(mu.getX(canvas.getWidth(), p.getRadius(), p.getDegree()));
             p.setY(mu.getY(canvas.getHeight(), p.getRadius(), p.getDegree()));

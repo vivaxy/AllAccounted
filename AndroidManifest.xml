@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".android.AppWall"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".android.Feedback"
+                  android:screenOrientation="portrait"/>
         <meta-data android:name="APP_ID" android:value="d62b537379f215252fa5ff769a7b0d3d"/>
         <meta-data android:name="APP_PID" android:value="default"/>
     </application>

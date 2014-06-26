@@ -26,7 +26,7 @@ public class Feedback extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback);
         ActionBar actionBar = getActionBar();
-        actionBar.setTitle(R.string.back);
+        actionBar.setTitle(R.string.feedback);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setHomeButtonEnabled(true);

@@ -4,12 +4,15 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.TextView;
 import android.widget.Toast;
 import cn.waps.AppConnect;
 import com.vivaxy.allaccounted.R;
+import com.vivaxy.allaccounted.tool.FeedbackUtil;
 
 /**
  * Author : vivaxy
@@ -20,6 +23,24 @@ import com.vivaxy.allaccounted.R;
 public class Feedback extends Activity {
 
     InputMethodManager imm = (InputMethodManager) HomeActivity.ha.getSystemService(Context.INPUT_METHOD_SERVICE);
+    FeedbackUtil fu = new FeedbackUtil();
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            TextView tv = (TextView) findViewById(R.id.feedback_container);
+            try {
+                fu.sendFeedback(tv.getText().toString());
+                Looper.prepare();
+                Toast.makeText(HomeActivity.ha, R.string.feedback_success, Toast.LENGTH_LONG).show();
+                Looper.loop();
+            } catch (Exception e) {
+                Looper.prepare();
+                Toast.makeText(HomeActivity.ha, R.string.feedback_error, Toast.LENGTH_LONG).show();
+                Looper.loop();
+                e.printStackTrace();
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,8 +72,7 @@ public class Feedback extends Activity {
                 finish();
                 break;
             case 0:
-                Toast.makeText(this, R.string.submit_success, Toast.LENGTH_LONG).show();
-//                @Todo send Feedback
+                new Thread(runnable).start();
                 imm.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
                 finish();
                 break;

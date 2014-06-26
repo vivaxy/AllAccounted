@@ -220,9 +220,8 @@ public class QuitAdDialog {
                 }
             }
         });
-
-        btn_layout.addView(okButton);
         btn_layout.addView(cancelButton);
+        btn_layout.addView(okButton);
 //		btn_layout.addView(moreButton);
 
         RelativeLayout.LayoutParams params1 = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);

@@ -18,7 +18,7 @@ import org.json.JSONObject;
 public class FeedbackUtil {
 
     public void sendFeedback(String content) throws Exception {
-        String url = "https://api.github.com/repos/vivaxy/AllAccounted/issue";
+        String url = "https://api.github.com/repos/vivaxy/AllAccounted/issues";
 //        String url = "http://10.15.92.130:8080/appTest/test";
         DefaultHttpClient httpclient = new DefaultHttpClient();
 
@@ -26,9 +26,9 @@ public class FeedbackUtil {
         JSONObject para = new JSONObject();
         para.put("title", "Feedback");
         para.put("body", content);
-        Log.v("-------", "content: " + content);
         StringEntity se = new StringEntity(para.toString(), HTTP.UTF_8);
         httppost.setEntity(se);
+        httppost.setHeader("Authorization", "token 644198954a9411b6859759320c644e3d6a579a2d");
         httppost.setHeader("Accept", "application/json");
         httppost.setHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
         ResponseHandler<String> responseHandler = new BasicResponseHandler();

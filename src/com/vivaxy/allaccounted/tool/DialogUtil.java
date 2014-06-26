@@ -46,18 +46,10 @@ public class DialogUtil {
         }
     }
 
-    public String[] chipDisplayedValues(int min, int interval, int number) {
-        String[] returnValue = new String[number];
-        for (int i = 0; i < number; i++) {
-            returnValue[i] = String.valueOf(interval * i + min);
-        }
-        return returnValue;
-    }
-
-    public void setChip(String chip0, String chip1, String chip2) {
+    public void setChip(int chip0, int chip1, int chip2) {
         ChipUtil cu = new ChipUtil();
-        cu.setChip0(Integer.parseInt(chip0));
-        cu.setChip1(Integer.parseInt(chip1));
-        cu.setChip2(Integer.parseInt(chip2));
+        cu.setChipIndex(0, chip0);
+        cu.setChipIndex(1, chip1);
+        cu.setChipIndex(2, chip2);
     }
 }

@@ -10,7 +10,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/feedback_container"
             android:gravity="top"
-            android:singleLine="false"/>
+            android:singleLine="false"
+            android:hint="@string/feedback_hint"/>
 
     <LinearLayout
             android:id="@+id/ad_layout"

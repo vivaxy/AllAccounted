@@ -48,9 +48,9 @@ public class TransferDialog extends DialogFragment implements OnClickListener {
         Button button_chip0 = (Button) view.findViewById(R.id.button_chip0);
         Button button_chip1 = (Button) view.findViewById(R.id.button_chip1);
         Button button_chip2 = (Button) view.findViewById(R.id.button_chip2);
-        button_chip0.setText("+" + cu.getChip0());
-        button_chip1.setText("+" + cu.getChip1());
-        button_chip2.setText("+" + cu.getChip2());
+        button_chip0.setText("+" + cu.getChipValue(0));
+        button_chip1.setText("+" + cu.getChipValue(1));
+        button_chip2.setText("+" + cu.getChipValue(2));
         button_chip0.setOnClickListener(this);
         button_chip1.setOnClickListener(this);
         button_chip2.setOnClickListener(this);
@@ -81,13 +81,13 @@ public class TransferDialog extends DialogFragment implements OnClickListener {
                 dismiss();
                 break;
             case R.id.button_chip0:
-                inputView.setText(String.valueOf(cu.getChip0() + Integer.parseInt(input)));
+                inputView.setText(String.valueOf(Integer.parseInt(cu.getChipValue(0)) + Integer.parseInt(input)));
                 break;
             case R.id.button_chip1:
-                inputView.setText(String.valueOf(cu.getChip1() + Integer.parseInt(input)));
+                inputView.setText(String.valueOf(Integer.parseInt(cu.getChipValue(1)) + Integer.parseInt(input)));
                 break;
             case R.id.button_chip2:
-                inputView.setText(String.valueOf(cu.getChip2() + Integer.parseInt(input)));
+                inputView.setText(String.valueOf(Integer.parseInt(cu.getChipValue(2)) + Integer.parseInt(input)));
                 break;
             default:
                 break;

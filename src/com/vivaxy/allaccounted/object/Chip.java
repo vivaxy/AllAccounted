@@ -7,13 +7,15 @@ package com.vivaxy.allaccounted.object;
  * Package: com.vivaxy.allaccounted.object
  */
 public class Chip {
-    private int money;
 
-    public int getMoney() {
-        return money;
+    private int index;
+
+    public int getIndex() {
+        return index;
     }
 
-    public void setMoney(int money) {
-        this.money = money;
+    public void setIndex(int index) {
+        this.index = index;
     }
+
 }

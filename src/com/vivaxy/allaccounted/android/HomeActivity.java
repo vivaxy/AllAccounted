@@ -2,11 +2,14 @@ package com.vivaxy.allaccounted.android;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 import cn.waps.AppConnect;
 import com.vivaxy.allaccounted.R;
 import com.vivaxy.allaccounted.tool.ChipUtil;
@@ -35,8 +38,17 @@ public class HomeActivity extends Activity {
             AppConnect.getInstance(this).initAdInfo();
             AppConnect.getInstance(this).getConfig("showAd", "defaultValue");
             this.ha = this;
-            pu.initPl(4);
-            cu.initCl();
+            SharedPreferences setting = getSharedPreferences("AllAccounted", Context.MODE_PRIVATE);
+            Boolean first_launch = setting.getBoolean("first_launch", true);
+            if (first_launch) {
+                setting.edit().putBoolean("first_launch", false).commit();
+                Toast.makeText(this, "welcome", Toast.LENGTH_LONG).show();
+                pu.initPl(4);
+                cu.initCl(0, 0, 0);
+            } else {
+                pu.initPl(setting.getInt("number", 4));
+                cu.initCl(setting.getInt("chip_index_0", 0), setting.getInt("chip_index_1", 0), setting.getInt("chip_index_2", 0));
+            }
             setContentView(new HomeView(this));
         }
     }
@@ -104,6 +116,13 @@ public class HomeActivity extends Activity {
     @Override
     public void onDestroy() {
         AppConnect.getInstance(this).close();
+        SharedPreferences setting = getSharedPreferences("AllAccounted", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = setting.edit();
+        edit.putInt("number", pu.getNumber());
+        edit.putInt("chip_index_0", cu.getChipIndex(0));
+        edit.putInt("chip_index_1", cu.getChipIndex(1));
+        edit.putInt("chip_index_2", cu.getChipIndex(2));
+        edit.commit();
         super.onDestroy();
     }
 }

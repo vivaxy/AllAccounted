@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import com.vivaxy.allaccounted.R;
+import com.vivaxy.allaccounted.tool.ChipUtil;
 import com.vivaxy.allaccounted.tool.DialogUtil;
 
 /**
@@ -21,9 +22,7 @@ import com.vivaxy.allaccounted.tool.DialogUtil;
 public class SetChipDialog extends DialogFragment implements OnClickListener {
 
     DialogUtil du = new DialogUtil();
-    String[] chip0_value = du.chipDisplayedValues(1, 1, 10);
-    String[] chip1_value = du.chipDisplayedValues(5, 5, 10);
-    String[] chip2_value = du.chipDisplayedValues(10, 10, 10);
+    ChipUtil cu = new ChipUtil();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,21 +33,21 @@ public class SetChipDialog extends DialogFragment implements OnClickListener {
 
         NumberPicker chip0 = (NumberPicker) view.findViewById(R.id.chip0);
         chip0.setMinValue(0);
-        chip0.setMaxValue(chip0_value.length - 1);
-        chip0.setDisplayedValues(chip0_value);
-        chip0.setValue(0);
+        chip0.setMaxValue(cu.chipValueList0.length - 1);
+        chip0.setDisplayedValues(cu.chipValueList0);
+        chip0.setValue(cu.getChipIndex(0));
 
         NumberPicker chip1 = (NumberPicker) view.findViewById(R.id.chip1);
         chip1.setMinValue(0);
-        chip1.setMaxValue(chip1_value.length - 1);
-        chip1.setDisplayedValues(chip1_value);
-        chip1.setValue(0);
+        chip1.setMaxValue(cu.chipValueList1.length - 1);
+        chip1.setDisplayedValues(cu.chipValueList1);
+        chip1.setValue(cu.getChipIndex(1));
 
         NumberPicker chip2 = (NumberPicker) view.findViewById(R.id.chip2);
         chip2.setMinValue(0);
-        chip2.setMaxValue(chip2_value.length - 1);
-        chip2.setDisplayedValues(chip2_value);
-        chip2.setValue(0);
+        chip2.setMaxValue(cu.chipValueList2.length - 1);
+        chip2.setDisplayedValues(cu.chipValueList2);
+        chip2.setValue(cu.getChipIndex(2));
 
         Button ok_btn = (Button) view.findViewById(R.id.ok_btn);
         ok_btn.setOnClickListener(this);
@@ -66,11 +65,11 @@ public class SetChipDialog extends DialogFragment implements OnClickListener {
                 break;
             case R.id.ok_btn:
                 NumberPicker chip0 = (NumberPicker) this.getView().findViewById(R.id.chip0);
-                String _chip0 = chip0_value[chip0.getValue()];
+                int _chip0 = chip0.getValue();
                 NumberPicker chip1 = (NumberPicker) this.getView().findViewById(R.id.chip1);
-                String _chip1 = chip1_value[chip1.getValue()];
+                int _chip1 = chip1.getValue();
                 NumberPicker chip2 = (NumberPicker) this.getView().findViewById(R.id.chip2);
-                String _chip2 = chip2_value[chip2.getValue()];
+                int _chip2 = chip2.getValue();
                 du.setChip(_chip0, _chip1, _chip2);
                 dismiss();
                 break;

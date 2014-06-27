@@ -30,7 +30,7 @@ public class FeedbackUtil {
         para.put("body", "Feedback from AllAccounted Android device.\n" + systemInfo);
         StringEntity se = new StringEntity(para.toString(), HTTP.UTF_8);
         httppost.setEntity(se);
-        httppost.setHeader("Authorization", "token 644198954a9411b6859759320c644e3d6a579a2d");
+        httppost.setHeader("Authorization", "token 9e86122a46472b572ae9fe0b401427ef4865bdff");
         httppost.setHeader("Accept", "application/json");
         httppost.setHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
         HttpResponse response = new DefaultHttpClient().execute(httppost);

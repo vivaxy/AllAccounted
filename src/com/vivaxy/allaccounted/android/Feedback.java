@@ -3,11 +3,15 @@ package com.vivaxy.allaccounted.android;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import cn.waps.AppConnect;
@@ -24,14 +28,16 @@ public class Feedback extends Activity {
 
     InputMethodManager imm = (InputMethodManager) HomeActivity.ha.getSystemService(Context.INPUT_METHOD_SERVICE);
     FeedbackUtil fu = new FeedbackUtil();
+
     Runnable runnable = new Runnable() {
         @Override
         public void run() {
             TextView tv = (TextView) findViewById(R.id.feedback_container);
             try {
-                fu.sendFeedback(tv.getText().toString());
+                Boolean success = fu.sendFeedback(tv.getText().toString());
                 Looper.prepare();
-                Toast.makeText(HomeActivity.ha, R.string.feedback_success, Toast.LENGTH_LONG).show();
+                if (success) Toast.makeText(HomeActivity.ha, R.string.feedback_success, Toast.LENGTH_LONG).show();
+                else Toast.makeText(HomeActivity.ha, R.string.feedback_error, Toast.LENGTH_LONG).show();
                 Looper.loop();
             } catch (Exception e) {
                 Looper.prepare();
@@ -51,8 +57,20 @@ public class Feedback extends Activity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setHomeButtonEnabled(true);
-//        LinearLayout layout = (LinearLayout) this.findViewById(R.id.ad_layout);
-//        AppConnect.getInstance(this).showBannerAd(this, layout);
+
+        LinearLayout layout = (LinearLayout) this.findViewById(R.id.ad_layout);
+        LinearLayout pop_layout = AppConnect.getInstance(this).getPopAdView(this);
+
+        if (pop_layout == null) {
+            return;
+        }
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        params.addRule(RelativeLayout.RIGHT_OF, layout.getId());
+
+        pop_layout.setBackgroundColor(Color.argb(200, 40, 40, 40));
+        pop_layout.setId((int) (System.currentTimeMillis() + 1));
+        pop_layout.setPadding(5, 0, 5, 0);
+        layout.addView(pop_layout, params);
     }
 
     @Override
@@ -72,9 +90,15 @@ public class Feedback extends Activity {
                 finish();
                 break;
             case 0:
-                new Thread(runnable).start();
-                imm.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
-                finish();
+                TextView tv = (TextView) findViewById(R.id.feedback_container);
+                String content = tv.getText().toString();
+                if (content.equals("")) {
+                    Toast.makeText(HomeActivity.ha, R.string.feedback_null, Toast.LENGTH_LONG).show();
+                } else {
+                    new Thread(runnable).start();
+                    imm.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
+                    finish();
+                }
                 break;
             default:
                 break;

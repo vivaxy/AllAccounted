@@ -1,8 +1,8 @@
 package com.vivaxy.allaccounted.tool;
 
+import android.app.Activity;
 import android.widget.Toast;
 import com.vivaxy.allaccounted.R;
-import com.vivaxy.allaccounted.android.HomeActivity;
 import com.vivaxy.allaccounted.object.Player;
 
 /**
@@ -13,16 +13,22 @@ import com.vivaxy.allaccounted.object.Player;
  */
 public class DialogUtil {
 
+    Activity activity;
+
+    public DialogUtil(Activity activity) {
+        this.activity = activity;
+    }
+
     public void setNumber(String input) {
         int n = 0;
         try {
             n = Integer.parseInt(input);
         } catch (java.lang.NumberFormatException e) {
             e.printStackTrace();
-            Toast.makeText(HomeActivity.ha, R.string.NumberFormatException, Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, R.string.NumberFormatException, Toast.LENGTH_LONG).show();
         }
         if (n > 9 || n < 2) {
-            Toast.makeText(HomeActivity.ha, R.string.two_to_nine, Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, R.string.two_to_nine, Toast.LENGTH_LONG).show();
         } else {
             new PlayerUtil().initPl(n);
         }
@@ -30,7 +36,7 @@ public class DialogUtil {
 
     public void transfer(int from, int to, String input) {
         if (input.equals("")) {
-            Toast.makeText(HomeActivity.ha, R.string.larger_than_zero, Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, R.string.larger_than_zero, Toast.LENGTH_LONG).show();
         } else {
             int n;
             try {
@@ -40,7 +46,7 @@ public class DialogUtil {
                 fromP.setMoney(fromP.getMoney() - n);
                 toP.setMoney(toP.getMoney() + n);
             } catch (java.lang.NumberFormatException e) {
-                Toast.makeText(HomeActivity.ha, R.string.NumberFormatException, Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, R.string.NumberFormatException, Toast.LENGTH_LONG).show();
                 e.printStackTrace();
             }
         }

@@ -1,5 +1,6 @@
 package com.vivaxy.allaccounted.android;
 
+import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -23,9 +24,16 @@ import com.vivaxy.allaccounted.tool.PlayerUtil;
  */
 public class SetNumberDialog extends DialogFragment implements OnClickListener {
 
+    Activity activity;
     PlayerUtil pu = new PlayerUtil();
-    DialogUtil du = new DialogUtil();
-    InputMethodManager imm = (InputMethodManager) HomeActivity.ha.getSystemService(Context.INPUT_METHOD_SERVICE);
+    DialogUtil du;
+
+    SetNumberDialog(Activity activity) {
+        this.activity = activity;
+        this.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+        this.show(activity.getFragmentManager(), "");
+        du = new DialogUtil(activity);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,6 +47,7 @@ public class SetNumberDialog extends DialogFragment implements OnClickListener {
         ok_btn.setOnClickListener(this);
         Button cancel_btn = (Button) view.findViewById(R.id.cancel_btn);
         cancel_btn.setOnClickListener(this);
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         inputView.selectAll();
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
         return view;
@@ -46,6 +55,7 @@ public class SetNumberDialog extends DialogFragment implements OnClickListener {
 
     @Override
     public void onClick(View view) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         EditText inputView;
         String input;
         switch (view.getId()) {

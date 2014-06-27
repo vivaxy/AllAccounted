@@ -19,4 +19,5 @@
     <string name="feedback_hint">Please enter your feedback.</string>
     <string name="feedback_error">Feekback error</string>
     <string name="feedback_null">Please enter your feedback.</string>
+    <string name="start_app">Start Application</string>
 </resources>

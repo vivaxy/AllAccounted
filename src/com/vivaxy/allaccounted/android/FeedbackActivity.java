@@ -24,10 +24,10 @@ import com.vivaxy.allaccounted.tool.FeedbackUtil;
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.android
  */
-public class Feedback extends Activity {
+public class FeedbackActivity extends Activity {
 
-    InputMethodManager imm = (InputMethodManager) HomeActivity.ha.getSystemService(Context.INPUT_METHOD_SERVICE);
-    FeedbackUtil fu = new FeedbackUtil();
+    Activity activity = this;
+    FeedbackUtil fu = new FeedbackUtil(this);
 
     Runnable runnable = new Runnable() {
         @Override
@@ -36,12 +36,12 @@ public class Feedback extends Activity {
             try {
                 Boolean success = fu.sendFeedback(tv.getText().toString());
                 Looper.prepare();
-                if (success) Toast.makeText(HomeActivity.ha, R.string.feedback_success, Toast.LENGTH_LONG).show();
-                else Toast.makeText(HomeActivity.ha, R.string.feedback_error, Toast.LENGTH_LONG).show();
+                if (success) Toast.makeText(activity, R.string.feedback_success, Toast.LENGTH_LONG).show();
+                else Toast.makeText(activity, R.string.feedback_error, Toast.LENGTH_LONG).show();
                 Looper.loop();
             } catch (Exception e) {
                 Looper.prepare();
-                Toast.makeText(HomeActivity.ha, R.string.feedback_error, Toast.LENGTH_LONG).show();
+                Toast.makeText(activity, R.string.feedback_error, Toast.LENGTH_LONG).show();
                 Looper.loop();
                 e.printStackTrace();
             }
@@ -78,12 +78,14 @@ public class Feedback extends Activity {
         super.onCreateOptionsMenu(menu);
         MenuItem menuSubmit = menu.add(0, 0, 0, R.string.submit);
         menuSubmit.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         switch (item.getItemId()) {
             case android.R.id.home:
                 imm.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);
@@ -93,7 +95,7 @@ public class Feedback extends Activity {
                 TextView tv = (TextView) findViewById(R.id.feedback_container);
                 String content = tv.getText().toString();
                 if (content.equals("")) {
-                    Toast.makeText(HomeActivity.ha, R.string.feedback_null, Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity, R.string.feedback_null, Toast.LENGTH_LONG).show();
                 } else {
                     new Thread(runnable).start();
                     imm.hideSoftInputFromWindow(findViewById(android.R.id.content).getWindowToken(), 0);

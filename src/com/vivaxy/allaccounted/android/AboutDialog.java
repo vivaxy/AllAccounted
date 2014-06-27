@@ -1,5 +1,6 @@
 package com.vivaxy.allaccounted.android;
 
+import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -21,16 +22,22 @@ import com.vivaxy.allaccounted.R;
 @Deprecated
 public class AboutDialog extends DialogFragment implements OnClickListener {
 
+    Activity activity;
+
+    AboutDialog(Activity activity) {
+        this.activity = activity;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.about_dialog, container);
         TextView title = (TextView) view.findViewById(R.id.title);
         title.setText(R.string.about);
         TextView aboutContent = (TextView) view.findViewById(R.id.about);
-        PackageManager pm = HomeActivity.ha.getPackageManager();
+        PackageManager pm = activity.getPackageManager();
         String version = getResources().getString(R.string.version) + ": ";
         try {
-            version = version + pm.getPackageInfo(HomeActivity.ha.getPackageName(), 0).versionName;
+            version = version + pm.getPackageInfo(activity.getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }

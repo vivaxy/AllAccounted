@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">多人计分</string>
+    <string name="setNumber">设置人数</string>
+    <string name="setChip">设置筹码</string>
+    <string name="exit">退出</string>
+    <string name="larger_than_zero">数字应该大于0</string>
+    <string name="two_to_nine">请输入2~9之间的数字</string>
+    <string name="transfer">转移分数</string>
+    <string name="NumberFormatException">无效数字</string>
+    <string name="about">关于</string>
+    <string name="author">作者</string>
+    <string name="version">版本</string>
+    <string name="moreAds">更多应用</string>
+    <string name="back">后退</string>
+    <string name="submit">提交</string>
+    <string name="feedback">意见反馈</string>
+    <string name="feedback_success">提交成功</string>
+    <string name="feedback_hint">请输入您的意见或建议</string>
+    <string name="feedback_error">提交失败</string>
+    <string name="feedback_null">请输入您的意见或建议</string>
+    <string name="start_app">进入应用</string>
+</resources>

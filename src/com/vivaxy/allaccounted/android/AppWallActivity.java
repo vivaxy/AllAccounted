@@ -25,7 +25,7 @@ import java.util.List;
  * Project: AllAccounted
  * Package: com.vivaxy.allaccounted.android
  */
-public class AppWall extends Activity {
+public class AppWallActivity extends Activity {
 
     private final Handler mHandler = new Handler();
 

@@ -1,8 +1,8 @@
 package com.vivaxy.allaccounted.object;
 
+import android.app.Activity;
 import android.os.Build;
 import cn.waps.SDKUtils;
-import com.vivaxy.allaccounted.android.HomeActivity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +15,7 @@ import java.util.Map;
  */
 public class SystemInfo {
 
+    Activity activity;
     private String os_version = System.getProperty("os.version");
     private int SDK_INT = Build.VERSION.SDK_INT;
     private String BOARD = Build.BOARD;
@@ -36,7 +37,12 @@ public class SystemInfo {
     private Long TIME = Build.TIME;
     private String TYPE = Build.TYPE;
     private String USER = Build.USER;
-    private int displaySize = SDKUtils.getDisplaySize(HomeActivity.ha);
+    private int displaySize;
+
+    public SystemInfo(Activity activity) {
+        this.activity = activity;
+        displaySize = SDKUtils.getDisplaySize(activity);
+    }
 
     public String getSysInfoString() {
         String info = "";

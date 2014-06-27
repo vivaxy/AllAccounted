@@ -1,5 +1,6 @@
 package com.vivaxy.allaccounted.android;
 
+import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -23,19 +24,19 @@ import com.vivaxy.allaccounted.tool.DialogUtil;
  */
 public class TransferDialog extends DialogFragment implements OnClickListener {
 
+    Activity activity;
     ChipUtil cu = new ChipUtil();
-    DialogUtil du = new DialogUtil();
-    InputMethodManager imm = (InputMethodManager) HomeActivity.ha.getSystemService(Context.INPUT_METHOD_SERVICE);
+    DialogUtil du;
     private int from;
     private int to;
 
-    public TransferDialog newInstance(int from, int to) {
-        TransferDialog td = new TransferDialog();
-        td.from = from;
-        td.to = to;
-        td.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
-        td.show(HomeActivity.ha.getFragmentManager(), "");
-        return td;
+    TransferDialog(Activity activity, int from, int to) {
+        this.activity = activity;
+        this.from = from;
+        this.to = to;
+        this.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+        this.show(activity.getFragmentManager(), "");
+        du = new DialogUtil(activity);
     }
 
     @Override
@@ -62,6 +63,7 @@ public class TransferDialog extends DialogFragment implements OnClickListener {
         Button cancel_btn = (Button) view.findViewById(R.id.cancel_btn);
         cancel_btn.setOnClickListener(this);
         inputView.selectAll();
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
         return view;
     }
@@ -70,6 +72,7 @@ public class TransferDialog extends DialogFragment implements OnClickListener {
     public void onClick(View view) {
         EditText inputView = (EditText) this.getView().findViewById(R.id.number_input);
         String input = inputView.getText().toString();
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         switch (view.getId()) {
             case R.id.cancel_btn:
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);

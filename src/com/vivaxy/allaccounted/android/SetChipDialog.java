@@ -1,5 +1,6 @@
 package com.vivaxy.allaccounted.android;
 
+import android.app.Activity;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,8 +22,16 @@ import com.vivaxy.allaccounted.tool.DialogUtil;
  */
 public class SetChipDialog extends DialogFragment implements OnClickListener {
 
-    DialogUtil du = new DialogUtil();
+    Activity activity;
+    DialogUtil du;
     ChipUtil cu = new ChipUtil();
+
+    SetChipDialog(Activity activity) {
+        this.activity = activity;
+        this.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
+        this.show(activity.getFragmentManager(), "");
+        du = new DialogUtil(activity);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

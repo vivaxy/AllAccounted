@@ -1,5 +1,6 @@
 package com.vivaxy.allaccounted.tool;
 
+import android.app.Activity;
 import android.util.Log;
 import com.vivaxy.allaccounted.object.SystemInfo;
 import org.apache.http.HttpResponse;
@@ -18,9 +19,16 @@ import org.json.JSONObject;
  */
 public class FeedbackUtil {
 
+    Activity activity;
+
+    public FeedbackUtil(Activity activity) {
+        this.activity = activity;
+    }
+
+
     public Boolean sendFeedback(String content) throws Exception {
 
-        String systemInfo = new SystemInfo().getSysInfoString();
+        String systemInfo = new SystemInfo(activity).getSysInfoString();
 
         String url = "https://api.github.com/repos/vivaxy/AllAccounted/issues";
 

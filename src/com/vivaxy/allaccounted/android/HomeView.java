@@ -1,5 +1,6 @@
 package com.vivaxy.allaccounted.android;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -15,6 +16,7 @@ import com.vivaxy.allaccounted.tool.PlayerUtil;
  */
 public class HomeView extends View {
 
+    Activity activity;
     int action = MotionEvent.ACTION_UP;
     float x;
     float y;
@@ -23,6 +25,7 @@ public class HomeView extends View {
 
     public HomeView(Context context) {
         super(context);
+        this.activity = (Activity) context;
     }
 
     @Override
@@ -33,7 +36,7 @@ public class HomeView extends View {
         } else if (action == MotionEvent.ACTION_UP) {
             pu.setTo(x, y);
             if (pu.toWhich() != -1) {
-                new TransferDialog().newInstance(pu.fromWhich(), pu.toWhich());
+                new TransferDialog(activity, pu.fromWhich(), pu.toWhich());
             }
             pu.clearFrom();
             pu.clearTo();

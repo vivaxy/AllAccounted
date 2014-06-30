@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Build;
 import cn.waps.SDKUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +35,7 @@ public class SystemInfo {
     private String PRODUCT = Build.PRODUCT;
     private String SERIAL = Build.SERIAL;
     private String TAGS = Build.TAGS;
-    private Long TIME = Build.TIME;
+    private String TIME = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Build.TIME);
     private String TYPE = Build.TYPE;
     private String USER = Build.USER;
     private int displaySize;
@@ -73,7 +74,7 @@ public class SystemInfo {
         map.put("PRODUCT", PRODUCT);
         map.put("SERIAL", SERIAL);
         map.put("TAGS", TAGS);
-        map.put("TIME", String.valueOf(TIME));
+        map.put("TIME", TIME);
         map.put("TYPE", TYPE);
         map.put("USER", USER);
         map.put("displaySize", String.valueOf(displaySize));

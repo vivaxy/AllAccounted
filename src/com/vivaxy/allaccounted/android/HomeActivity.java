@@ -13,6 +13,9 @@ import com.vivaxy.allaccounted.R;
 import com.vivaxy.allaccounted.tool.ChipUtil;
 import com.vivaxy.allaccounted.tool.PlayerUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Author : vivaxy
  * Date   : 2014/6/19 17:52
@@ -36,9 +39,9 @@ public class HomeActivity extends Activity {
             AppConnect.getInstance(this).initAdInfo();
             AppConnect.getInstance(this).getConfig("showAd", "defaultValue");
             SharedPreferences setting = getSharedPreferences("AllAccounted", Context.MODE_PRIVATE);
-            Boolean first_launch = setting.getBoolean("first_launch", true);
-            if (first_launch) {
-                setting.edit().putBoolean("first_launch", false).commit();
+            String installTime = setting.getString("install_time", "");
+            if (installTime.equals("")) {
+                setting.edit().putString("install_time", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())).commit();
                 pu.initPl(4);
                 cu.initCl(0, 0, 0);
                 Intent intent = new Intent(this, GuideActivity.class);

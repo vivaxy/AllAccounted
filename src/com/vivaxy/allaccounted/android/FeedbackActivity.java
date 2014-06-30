@@ -33,18 +33,11 @@ public class FeedbackActivity extends Activity {
         @Override
         public void run() {
             TextView tv = (TextView) findViewById(R.id.feedback_container);
-            try {
-                Boolean success = fu.sendFeedback(tv.getText().toString());
-                Looper.prepare();
-                if (success) Toast.makeText(activity, R.string.feedback_success, Toast.LENGTH_LONG).show();
-                else Toast.makeText(activity, R.string.feedback_error, Toast.LENGTH_LONG).show();
-                Looper.loop();
-            } catch (Exception e) {
-                Looper.prepare();
-                Toast.makeText(activity, R.string.feedback_error, Toast.LENGTH_LONG).show();
-                Looper.loop();
-                e.printStackTrace();
-            }
+            Boolean success = fu.sendFeedback(tv.getText().toString());
+            Looper.prepare();
+            if (success) Toast.makeText(activity, R.string.feedback_success, Toast.LENGTH_LONG).show();
+            else Toast.makeText(activity, R.string.feedback_error, Toast.LENGTH_LONG).show();
+            Looper.loop();
         }
     };
 
